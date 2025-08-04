@@ -4,6 +4,7 @@
 //o app.listen permite que a requisição que o usuário realizou seja escutada pelo servivor, buscada e, por fim, fornecida ao usuário
 
 const express = require("express");
+//cria a aplicação principal, ou seja, minha API
 //aqui estou acessando o middwalre express do meu node.js, que me permite trabalhar melhor com o gerenciamento de rotas
 const agentesRoutes = require("./routes/agentesRoutes");
 //aqui, através do require, consigo acessar o meu arquivo js agenteRoutes, preciso acessar esse arquivo para servir ele para o servidor
@@ -11,7 +12,8 @@ const agentesRoutes = require("./routes/agentesRoutes");
 const path = require("path");
 const swaggerUi = require("swagger-ui-express");
 //aqui, a documentação da minha API
-const errorHandler = require("./utils/errorHandler");
+const {errorHandler} = require("./utils/errorHandler");
+//sem "{ }" errorHaldle é um objeto com a funçaõ dentro, e não diretamente a funçaõ
 
 const server = express();
 //aqui acessei o middwalre express
@@ -55,6 +57,7 @@ server.use("/agentes", agentesRoutes);
 server.post("/agentes", (req, res) => {
   res.send("Novo agente salvo com sucesso!");
 });
+//o idela seria esta no meu arquivo routes, junto com os outros, e tudo seria servido em agentesRoutes
 //aqui, meu post é responsável por enviar os arquivos. Isso é um endpoint
 //na rota agentes, quando minha requisição for realizada, ou seja, preciso linkar essa requisição com um button no meu html
 //meu onClick vai disparar a função que chama essa requisição e envia como resposta a mensagem
@@ -68,10 +71,6 @@ server.get("/agentes", (req, res) => {
 //ou seja, essa função permite que meu servidor encontre o caminho correto
 
 //CASOS ----
-
-server.post("/cases", (req, res) => {
-  res.send("Novo caso salvo com sucesso!");
-});
 
 server.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);

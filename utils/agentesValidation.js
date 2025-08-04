@@ -11,7 +11,7 @@ const agenteSchema = z.object({
     .int({ required_error: "Digite somente valores inteiros" })
     .nonnegative({ required_error: "Data não pode ser valor negativo" })
     .min(1, "Preenchimento obrigatório"),
-  cargo: z.enum(["Delegado", "Agente de Trânsito", "Policial civil"], {
+  cargo: z.enum(["delegado", "agente de Trânsito", "policial civil"], {
     required_error: "Cargo é obrigatório",
     invalid_type_error:
       'Cargo deve ser "Agente de Trânsito", "Delegado" ou "Policial Civil"',

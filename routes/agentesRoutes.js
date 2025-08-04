@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+//Retorna o objeto de um roteador (um middware - qualquer função que recebe 3 parametros, uma funçãoq ue o express executa automaticamente quando uma requisição é feita) que o server.use consegue utilizar, ous eja, ocnsegue acessar as rotas que eu guardei em ROUTES
+//Se coloco entre parenteses. signifca que quero qeu a função eja executada no momenro que ela for chamada
 const controller = require("../controllers/agentesController");
 
 //cada router determina um middare que intercepta funções.
@@ -24,3 +26,4 @@ router.delete("/:id", controller.deleteAgente);
 //mas ainda não entendi completamente porque a estrutura é feita dessa forma
 
 module.exports = router;
+//router é uma instância do módulo express

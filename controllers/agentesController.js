@@ -33,7 +33,14 @@ const getAgentes = (req, res, next) => {
 
 const createAgente = (req, res, next) => {
   try {
-    const data = agenteSchema.parse(req.body);
+    const {nome, dataDeIncorporacao, cargo} = req.body;
+    const dadosRecebidos = {
+      nome,
+      dataDeIncorporacao,
+      cargo: cargo.ToLowerCase
+    }
+
+    const data = agenteSchema.parse(dadosRecebidos);
     const agente = repository.createNewAgente(data);
     res.status(201).redirect("/agentes.html");
   } catch (error) {

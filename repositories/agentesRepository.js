@@ -42,7 +42,6 @@ const updateAgente = (id, data) => {
 
 //aqui, eu recebo o id, pois preciso do id para achar qual objeto eu preciso atualizar
 //dessa forma, falo que o agente nessa posição, eu vou pegar todos os seus dados e vou substiruri todos eles por data
-//esse "..." significa isso? definir que vou mudar tudo
 //mas, meu id não é uma string e o index de um array é um int? isso não da erro?
 
 const deleteAgente = (id) => {
