@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <section>
+        <div id="agentes"></div>
+      </section>
+    </div>
+
+    <script>
+      const getAgentes = () => {
+        const containerHTML = document.getElementById("agentes");
+        //forma assíncrona de lidar com o fetch, pois retorna uma promise
+        fetch("http://localhost:3000/agentes")
+          .then((response) => response.json()) //converto para json o objeto js
+          .then((dataAgentes) => {
+            //o que eu quero que seja feito com os dados que eu recebi
+            containerHTML.innerHTML = dataAgentes
+              .map((agente) => {
+                return `
+            <h2>${agente.nome}</h2>
+            <p> Data de incorporação: ${agente.dataDeIncorporacao}</p>
+            <p> Cargo: ${agente.cargo}</p>
+          `;
+              })
+              .join(""); // junta o array de strings em uma única string HTML
+          })
+          .catch((error) => {
+            console.log("Erro ao buscar agentes:", error);
+          });
+      };
+
+      getAgentes();
+
+      const ConfirmarEnvio = () => {
+        alert("Agente adicionado!");
+      };
+
+      //se eu utilizar await fetch, o try cath funciona
+      //se eu utilizar then e responde, somente o catch funciona
+    </script>
+  </body>
+</html>
