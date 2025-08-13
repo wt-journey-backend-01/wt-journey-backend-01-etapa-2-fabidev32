@@ -16,9 +16,20 @@ const options = {
         description: "Servidor local de desenvolvimento",
       },
     ],
+    tags: [
+      {
+        name: "Casos",
+        description:
+          "Gerenciamento de todos os casos do departamento de polícia",
+      },
+      {
+        name: "Agentes",
+        description: "Gerenciamento dos agentes do departamento de polícia",
+      },
+    ],
   },
 
-  apis: ["./routes/agentesRoutes.js"],
+  apis: ["./routes/agentesRoutes.js", "./routes/casesRoutes.js"],
   //o * que posso acessar minha documnetação em qualquer arquivo js
   //nesse caso, toda a lógica da minha API vai estar no meu agentesRoutes
 };

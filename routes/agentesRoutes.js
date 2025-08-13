@@ -16,8 +16,8 @@ const controller = require("../controllers/agentesController");
 /**
  * @swagger
  * tags:
- * name: Agentes
- * description: Gerenciamento de casos e agentes do departamento de polícia
+ *   - name: Agentes
+ *     description: Gerenciamento de todos os agentes do departamento de polícia
  */
 
 /**

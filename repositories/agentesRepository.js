@@ -46,14 +46,8 @@ const updateAgente = (id, data) => {
 
 const deleteAgente = (id) => {
   const index = agentes.findIndex((agente) => agente.id === id);
-  console.log("Id do repository encontrado: ");
-  console.log(index);
   if (index != -1) {
     const [deleted] = agentes.splice(index, 1);
-    console.log(
-      "Agente que precisa ser deletado, vou retornar para o controller:"
-    );
-    console.log(deleted);
     return deleted;
   }
   return false;

@@ -33,16 +33,15 @@ const getAgentes = (req, res, next) => {
 
 const createAgente = (req, res, next) => {
   try {
-    const {nome, dataDeIncorporacao, cargo} = req.body;
-    const dadosRecebidos = {
+    const { nome, dataDeIncorporacao, cargo } = req.body;
+    const dataReceived = {
       nome,
       dataDeIncorporacao,
-      cargo: cargo.ToLowerCase
-    }
+      cargo,
+    };
 
-    const data = agenteSchema.parse(dadosRecebidos);
+    const data = agenteSchema.parse(dataReceived);
     const agente = repository.createNewAgente(data);
-    console.log(agente);
     res.status(201).send(agente);
   } catch (error) {
     console.log("Erro:", error);
@@ -72,8 +71,6 @@ const deleteAgente = (req, res, next) => {
   const { id } = req.params;
   try {
     const agenteDeleted = repository.deleteAgente(id);
-    console.log(agenteDeleted);
-    console.log("Agente do controller que precisa ser deletado");
     if (!agenteDeleted)
       return next(new ApiError("Agente não encontrado.", 400));
     res.status(200).json(agenteDeleted);
