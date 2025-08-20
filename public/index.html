@@ -9,10 +9,14 @@
     <div>
       <section>
         <form action="/agentes" method="post">
-          <label for="name">Nome do agente </label>
-          <input type="text" id="name" name="name" />
-          <label for="date"> Data de incorporação </label>
-          <input type="text" id="date" name="date" />
+          <label for="nome">Nome do agente </label>
+          <input type="text" id="nome" name="nome" />
+          <label for="dataDeIncorporacao"> Data de incorporação </label>
+          <input
+            type="date"
+            id="dataDeIncorporacao"
+            name="dataDeIncorporacao"
+          />
           <label for="cargo"> Cargo </label>
           <input type="text" id="cargo" name="cargo" />
           <button type="submit">Cadastrar novo agente</button>

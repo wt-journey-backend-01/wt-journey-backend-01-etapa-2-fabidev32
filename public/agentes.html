@@ -16,7 +16,7 @@
       const getAgentes = () => {
         const containerHTML = document.getElementById("agentes");
         //forma assíncrona de lidar com o fetch, pois retorna uma promise
-        fetch("http://localhost:3000/agentes")
+        fetch("http://localhost:3000/listaDeAgentes")
           .then((response) => response.json()) //converto para json o objeto js
           .then((dataAgentes) => {
             //o que eu quero que seja feito com os dados que eu recebi

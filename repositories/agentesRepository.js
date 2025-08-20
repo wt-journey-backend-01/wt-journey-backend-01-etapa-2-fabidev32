@@ -6,14 +6,14 @@ const agentes = [
     id: "401bccf5-cf9e-489d-8412-446cd169a0f1",
     nome: "Rommel Carneiro",
     dataDeIncorporacao: "1992/10/04",
-    cargo: "delegado",
+    cargo: "Delegado",
   },
 
   {
     id: "bdaeb44b-0bc5-4adc-a2d7-e975d75cf91d",
     nome: "Higino",
     dataDeIncorporacao: "2000/03/10",
-    cargo: "delegado",
+    cargo: "Delegado",
   },
 ];
 
@@ -46,9 +46,15 @@ const updateAgente = (id, data) => {
 
 const deleteAgente = (id) => {
   const index = agentes.findIndex((agente) => agente.id === id);
+  console.log("Id do repository encontrado: ");
+  console.log(index);
   if (index != -1) {
-    agentes.splice(index, 1);
-    return true;
+    const [deleted] = agentes.splice(index, 1);
+    console.log(
+      "Agente que precisa ser deletado, vou retornar para o controller:"
+    );
+    console.log(deleted);
+    return deleted;
   }
   return false;
 };
